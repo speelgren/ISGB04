@@ -12,11 +12,18 @@ public class Logik {
 		
 		int lotto[] = new int[7];
 		
+		/*
+		 * Algoritm för att slumpa lottorad.
+		 */
 		for(int i = 0; i < 7; i++) {
 			Random nr = new Random();
 		    lotto[i] = nr.nextInt(35);
 		}
 		
+		/*
+		 * Ändrar array med lottorad till String.
+		 * Returnerar till lyssnare.
+		 */
 		for(int i = 0; i < 7; i++) {
 			String temp = Integer.toString(lotto[i]);
 			
@@ -27,6 +34,10 @@ public class Logik {
 	}
 	
 	public void quit() {
+		
+		/*
+		 * Avslutar programmet.
+		 */
 		
 		System.exit(1);
 	}

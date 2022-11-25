@@ -20,9 +20,17 @@ public class Filhant {
 		
 		try {
 			
+			/*
+			 * Skriver den mottagna String s till filen lotto.txt.
+			 * 
+			 */
 			writer = new BufferedWriter(new OutputStreamWriter(new BufferedOutputStream(new FileOutputStream("lotto.txt"))));
 
 			writer.write(s + '\n');
+			
+			/*
+			 * Stänger BufferedWriter.
+			 */
 		    writer.close();
 		    
 		    System.out.println("file saved");
@@ -35,30 +43,43 @@ public class Filhant {
 
 	public String[] read() {
 		
+		/*
+		 *  Skapar lottoList som ArrayList med typ String.
+		 */
 		List <String> lottoList = new ArrayList<String>();
 		
 		try {
 			
+			/*
+			 * Läser det som finns i filen lotto.txt
+			 */
 			reader = new BufferedReader (new InputStreamReader(new BufferedInputStream(new FileInputStream("lotto.txt"))));
 			in = reader.readLine();
 			
+			/*
+			 * Så länge filen inte är tom fortsätter programmet läsa filen tills den är slut.
+			 */
 			while (in != null) {
+				
 				lottoList.add(in);
 				in = reader.readLine();
 			}
 			
 		}
+		/*
+		 * Om filen är tom kastas ett felmeddelande.
+		 */
 		catch (IOException e) {
+			
 			System.out.println("File is empty");
 		}
+		
+		/*
+		 * Innehållet i filen läses och ändras till lottoArray och returneras till lyssnaren
+		 */
 		String[] lottoArray = lottoList.toArray(new String[0]);
 		
 		return lottoArray;
-	}
-
-	public Filhant() {
-
-
 	}
 
 }

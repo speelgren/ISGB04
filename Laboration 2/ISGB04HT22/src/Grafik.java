@@ -21,6 +21,9 @@ public class Grafik {
 		sb=new JScrollPane(t);
 		ly=new Lyssnare(this);
 		
+		/*
+		 * Skapar menybar och menyitems.
+		 */
 		mainMenu = new JMenuBar();
 		menu = new JMenu("Menu");
 		random = new JMenuItem("random"); 
@@ -29,6 +32,9 @@ public class Grafik {
 		read = new JMenuItem("read");
 		quit = new JMenuItem("quit");
 		
+		/*
+		 * Skapar en meny med referens till varje menyval.
+		 */
 		menu.add(random);
 		menu.add(clear);
 		menu.add(save);
@@ -38,6 +44,9 @@ public class Grafik {
 		mainMenu.add(menu);
 		f.setJMenuBar(mainMenu);
 		
+		/*
+		 * Skapar lyssnare till varje menyval.
+		 */
 		random.addActionListener(ly);
 		clear.addActionListener(ly);
 		save.addActionListener(ly);
@@ -51,6 +60,9 @@ public class Grafik {
 		
 	}
 	
+	/*
+	 * Används för att komma åt JTextArea.
+	 */
 	public JTextArea getTextField() {
 		
 		return t;
