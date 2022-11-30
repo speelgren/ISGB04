@@ -14,8 +14,10 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
-int randomWrite(FILE *fp, int lr);
-int openFile(FILE *fp);
-FILE *openfil(char namn[]);
 
-#endif /* header_h */
+/* Prototyper */
+FILE *openfil(char namn[]);
+void randomWrite(FILE *fp, int rows);
+void openFile(FILE *fp);
+
+#endif

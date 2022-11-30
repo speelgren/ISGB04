@@ -11,44 +11,39 @@
 #include "header.h"
 
 int main(int argc, const char * argv[]) {
-    
-    int lr, c;
-    FILE *fp;
-    
-    printf("1. Open file\n2. Create file\n");
-    printf("Enter option: ");
-    scanf("%i", &c);
-    
-    switch(c) {
-            
-        case 1:
-            openFile(fp);
-            break;
-        case 2:
-            printf("Enter number of lottery tickets: ");
-            scanf("%i", &lr);
-            
-            if(lr > 0) {
-                
-                randomWrite(fp, lr);
-            } else {
-                printf("Enter positive number of lottery ticket: ");
-                scanf("%i", &lr);
-            }
-    }
-    
-    return 0;
-}
 
-FILE *openfil(char namn[]) {
-    
+    int rows, choice;
     FILE *fp;
-    if((fp = fopen(namn, "r+")) == NULL)
-        if((fp = fopen(namn, "w+")) == NULL) {
+    fp=openfil("lotto.txt");
+
+    printf("1. Randomize lottery rows\n2. Open file\n3. Quit\nEnter option: ");
+    scanf("%i", &choice);
+
+    switch(choice) {
+        case 1:
+
+            printf("Enter number of lottery rows: ");
+            scanf("%i", &rows);
             
-            printf("fel\n");
-            return NULL;
-        }
-    
-    return fp;
+            if(rows > 0)
+                randomWrite(fp, rows);
+            
+            else {
+                
+                printf("Enter positive number of lottery rows: ");
+                scanf("%i", &rows);
+            }
+           break;
+
+        case 2:
+            
+            printf("Reading from file:\n");
+                openFile(fp);
+            break;
+
+        case 3:
+            
+                exit(1);
+            break;
+    }
 }
