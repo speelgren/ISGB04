@@ -32,9 +32,10 @@ void randomWrite(FILE *fp, int rows) {
     int size = (int)(sizeof(lottery) / sizeof(lottery[0])); //cast from long int to int.
     char lotteryStr[size];
     
-    for(int i = 1; i < n; i++) {
+    
+    for(int i = 0; i < n; i++) {
         
-        lottery[i] = i;
+        lottery[i] = i + 1;
     }
     
     for(int i = 0; i < n; i++) {
@@ -45,15 +46,15 @@ void randomWrite(FILE *fp, int rows) {
         lottery[j] = temp;
     }
     
-    for(int j = 0; j < n; j++) {
+    for(int i = 0; i < n; i++) {
         
-        sprintf(lotteryStr, "%2i", lottery[j]);
+        sprintf(lotteryStr, "%2i", lottery[i]);
         printf("%s ", lotteryStr);
         
         fputs(lotteryStr, fp);
         fputs(" ", fp);
         
-        if((j + 1) % 7 == 0) {
+        if((i + 1) % 7 == 0) {
             
             printf("\n");
             fputc('\n', fp);
