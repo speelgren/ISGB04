@@ -32,7 +32,7 @@ void randomWrite(FILE *fp, int rows) {
     int size = (int)(sizeof(lottery) / sizeof(lottery[0])); //cast from long int to int.
     char lotteryStr[size];
     
-    for(int i = 0; i < n; i++) {
+    for(int i = 0; i < 35; i++) {
         
         lottery[i] = i + 1;
     }
