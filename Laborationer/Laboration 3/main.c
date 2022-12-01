@@ -14,6 +14,10 @@ int main(int argc, const char * argv[]) {
 
     FILE *fp;
     fp=openfile("lotto.txt");
+    /*
+     * vi har valt att spara som en text-fil för enkelhets skull.
+     * behövde inte skapa en läsfunktion för att kunna dubbellkolla så att allt skrevs korrekt till filen.
+     */
     int choice, rows;
 
     printf("1. Randomize lottery rows\n2. Open file\n3. Quit\nEnter option: ");
