@@ -10,6 +10,55 @@
 
 #include "header.h"
 
+void randomWrite(FILE *fp, int rows) {
+    
+    srand((int)time(NULL));
+    
+    int n = (rows * 7);
+    int lottery[n];
+    int size = (int)(sizeof(lottery) / sizeof(lottery[0])); //cast from long int to int.
+    char lotteryStr[size];
+    
+    for(int i = 0; i < rows; i++) {
+        
+        for(int j = 0; j < 7; j++) {
+         
+            lottery[j] = rand() % 35 + 1;
+        }
+        
+        for(int k = 0; k < 7; k++) {
+            
+            for(int l = 0; l < 7; l++) {
+                
+                int temp = lottery[k];
+                lottery[k] = 0;
+                
+                while(temp == lottery[l]) {
+                    
+                    temp = rand() % 35 + 1;
+                }
+                
+                lottery[k] = temp;
+            }
+        }
+        
+        for(int m = 0; m < 7; m++) {
+            
+            sprintf(lotteryStr, "%2i", lottery[m]);
+            printf("%s ", lotteryStr);
+            
+            fputs(lotteryStr, fp);
+            fputs(" ", fp);
+            
+            if((m + 1) % 7 == 0) {
+                
+                printf("\n");
+                fputc('\n', fp);
+            }
+        }
+    }
+}
+
 FILE *openfil(char namn[]) {
     
   FILE *fp;
@@ -23,52 +72,14 @@ FILE *openfil(char namn[]) {
   return fp;
 }
 
-void randomWrite(FILE *fp, int rows) {
-    
-    srand((int)time(NULL));
-    
-    int n = (rows * 7);
-    int lottery[n];
-    int size = (int)(sizeof(lottery) / sizeof(lottery[0])); //cast from long int to int.
-    char lotteryStr[size];
-    
-    for(int i = 0; i < 35; i++) {
-        
-        lottery[i] = i + 1;
-    }
-    
-    for(int i = 0; i < n; i++) {
-        
-        int j = rand() % (n - i);
-        int temp = lottery[(n - 1) - i];
-        lottery[(n - 1) - i] = lottery[j];
-        lottery[j] = temp;
-    }
-    
-    for(int i = 0; i < n; i++) {
-        
-        sprintf(lotteryStr, "%2i", lottery[i]);
-        printf("%s ", lotteryStr);
-        
-        fputs(lotteryStr, fp);
-        fputs(" ", fp);
-        
-        if((i + 1) % 7 == 0) {
-            
-            printf("\n");
-            fputc('\n', fp);
-        }
-    }
-}
-
 void openFile(FILE *fp) {
     
-    char tkn;
-    tkn = fgetc(fp);
+    char t;
+    t = fgetc(fp);
     
     while(!feof(fp)) {
         
-        printf("%c", tkn);
-        tkn = fgetc(fp);
+        printf("%c", t);
+        t = fgetc(fp);
     }
 }
