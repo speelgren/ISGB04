@@ -26,19 +26,19 @@ public class Logik {
 		 */
 		for(int m = 0; m < 7; m++) {
             
-            for(int j = 0; j < 7; j++) {
+			for(int j = 0; j < 7; j++) {
+
+			int temp = lotto[m];
+			lotto[m] = 0;
+
+				while(temp == lotto[j]) {
+
+				    temp = nr.nextInt(35);
+				}
                 
-                int temp = lotto[m];
-                lotto[m] = 0;
-                
-                while(temp == lotto[j]) {
-                	
-                    temp = nr.nextInt(35);
-                }
-                
-                lotto[m] = temp;
-            }
-        }
+                	lotto[m] = temp;
+            		}
+        	}
 		
 		/*
 		 * Ändrar array med lottorad till String.
