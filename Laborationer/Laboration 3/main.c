@@ -12,9 +12,9 @@
 
 int main(int argc, const char * argv[]) {
 
-    int rows, choice;
     FILE *fp;
-    fp=openfil("lotto.txt");
+    fp=openfile("lotto.txt");
+    int choice, rows;
 
     printf("1. Randomize lottery rows\n2. Open file\n3. Quit\nEnter option: ");
     scanf("%i", &choice);
@@ -38,11 +38,12 @@ int main(int argc, const char * argv[]) {
         case 2:
             
             printf("Reading from file:\n");
-                openFile(fp);
+                readFile(fp);
             break;
 
         case 3:
             
+            printf("\n");
                 exit(1);
             break;
     }

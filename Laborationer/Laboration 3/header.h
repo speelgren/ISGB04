@@ -16,8 +16,8 @@
 #include <string.h>
 
 /* Prototyper */
-FILE *openfil(char namn[]);
 void randomWrite(FILE *fp, int rows);
-void openFile(FILE *fp);
+FILE *openfile(char namn[]);
+void readFile(FILE *fp);
 
 #endif
