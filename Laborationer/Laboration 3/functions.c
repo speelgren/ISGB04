@@ -1,5 +1,5 @@
 //
-//  randomWrite.c
+//  functions.c
 //  Laboration 3
 //
 //  Created by
